@@ -1,5 +1,5 @@
 <div align="center">
-<img src="static/images/logo.png" alt="Logo">
+<img src="/static/images/logo.png" alt="Logo">
 </div>
 
 <hr>
@@ -28,7 +28,7 @@ And all the magic performed by the app is made possible by the **Google GEMINI A
 ## 📆 History
 
 <div align="center">
-<img src="static/images/robopet.jpg" alt="Logo">
+<img src="/static/images/robopet.jpg" alt="Logo">
 </div>
 
 Artificial intelligence is increasingly present in our lives, making it necessary to encourage as many people as possible to take their first steps in understanding this technology, allowing them to become not only users but also protagonists in creating new resources for this technology in the future.
@@ -40,10 +40,10 @@ But it was only in 2024, with the advent of Generative AI and the Google GEMINI 
 The creator of this project, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), is a Black man from a disadvantaged background, graduated in Data Science and Systems Development. He shares some of his story in the documentary [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) available on Amazon Prime Video.
 
 <div style="display: flex;">
-<img src="static/images/image1.jpg" alt="Imagem 1" style="width: 22%; margin-right: 8px;">
-<img src="static/images/image2.jpg" alt="Imagem 2" style="width: 22%; margin-right: 8px;">
-<img src="static/images/image3.jpg" alt="Imagem 3" style="width: 22%; margin-right: 8px;">
-<img src="static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
+<img src="/static/images/image1.jpg" alt="Imagem 1" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/image2.jpg" alt="Imagem 2" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/image3.jpg" alt="Imagem 3" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
 </div>
 
 ## 💪 Impact
@@ -59,7 +59,7 @@ Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn 
 ## 💻 Technologies Used in This App
 
 <div align="center">
-<img src="static/images/gemini.png" alt="Logo Gemini API">
+<img src="/static/images/gemini.png" alt="Logo Gemini API">
 </div>
 
 - ![Pyton](https://img.shields.io/badge/python-v3-green)
@@ -141,7 +141,7 @@ Contributions are welcome! Feel free to open a pull request or contribute in any
 * E-mail: roboeduca.net@gmail.com
 
 <div style="display: flex;">
-<img src="static/images/ods1.jpg" alt="Ods 4" style="width: 30%; margin-right: 5px;">
-<img src="static/images/ods2.jpg" alt="ODS ONU" style="width: 30%; margin-right: 5px;">
-<img src="static/images/ods3.jpg" alt="Ods 10" style="width: 30%;">
+<img src="/static/images/ods1.jpg" alt="Ods 4" style="width: 30%; margin-right: 5px;">
+<img src="/static/images/ods2.jpg" alt="ODS ONU" style="width: 30%; margin-right: 5px;">
+<img src="/static/images/ods3.jpg" alt="Ods 10" style="width: 30%;">
 </div>
