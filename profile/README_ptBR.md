@@ -4,11 +4,10 @@
 
 <hr>
 
-[English Version](/profile/README.md)
+[English Version](/README.md)
 
 ![Portuguese](https://img.shields.io/badge/Language-English-blue)
 <hr>
-
 
 ## 🤓 Aprenda a programar construindo seu próprio robô.
 
@@ -25,19 +24,13 @@ E toda a mágica realizado pelo aplicativo só é possível por conta do uso da 
 * Clique em: ENTRAR COMO VISITANTE;
 * Ouça as perguntas e responda corretamente para acumular pontos.
 
-## 📆 Histórico
+## 💪 Histórico de Impacto Social
 
-<div align="center">
-<img src="/static/images/robopet.jpg" alt="Logo">
-</div>
+Desde o ano de 2018, quando utilizávamos apenas leds, baterias e resistores conseguimos impactar centenas de crianças em diversas comunidades carentes na cidade de **Salvador, Bahia - Brasil**.
 
-A Inteligência artificial está cada vez mais presente em nossas vidas, fazendo-se necessário estimular o maior número de pessoas a darem os primeiros passos no entendimento desta tecnologia permitindo assim que as mesmas se tornem não somente usuários mais principalmente protagonistas na criação dos novos recursos desta tecnologia no futuro.
+O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), é um homem negro de origem periférica graduado em Ciência de Dados e Desenvolvedor de Sistemas. O mesmo conta um pouco da sua história no documentário [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) disponível no Amazon Prime Video.
 
-Foi a partir deste pensamento que no ano de 2018 surgiu o projeto Robô Educa. Uma plataforma inclusiva para Ensino de Programação em que a criança dá os primeiros passos neste universo montando o seu próprio robô. Nesta época o robô era feito de garrafas PET e alguns componentes eletrônicos como Arduino, leds, resistores, e baterias.
-
-Mas foi somente no ano de 2024 com o advento das IA Generativas e da **Google GEMINI API**, que o robô passou a ter um "cérebro" capaz de responder de forma **inteligente e rápida**, tornando a interação com a criança **flúida e encantadora** 😄!
-
-O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), é um homem negro de origem periférica graduado em Ciência de Dados e Desenvolvedor de Sistemas. O mesmo conta um pouco da sua história no documentário [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) disponível no Amazon Prime Video. 
+Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Google GEMINI API**, que o robô passou a ter um **cérebro** capaz de responder de forma inteligente e rápida, tornando a interação com a criança flúida e encantadora 😄!
 
 <div style="display: flex;">
 <img src="/static/images/image1.jpg" alt="Imagem 1" style="width: 22%; margin-right: 8px;">
@@ -46,20 +39,29 @@ O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPP
 <img src="/static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
 </div>
 
-## 💪 Impacto
+📸 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão digital.
 
-Utilizando apenas alguns poucos leds, resistores e baterias, conseguimos impactar centenas de crianças em diversas comunidades da nossa cidade. 
+## Como as coisas funcionam
 
-Já a partir do uso da inteligência artificial generativa e da nuvem, surgem novas possibilidades de expansão das habilidades cognitivas de nosso robô. Com a qual esperamos  alcançar um número ainda maior de crianças, agora **em todo o mundo**!
+### 👤 CORPO
 
-Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão realizadas em comunidades carentes na cidade de Salvador, Bahia - Brasil.
+A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô pode ser feito com materiais recicláveis como garrafas PET ou kits em madeira MDF. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele, que é o aplicativo contido neste repositório.
 
-💪 E você? Gostou? Então faça sua parte e colabore com esta iniciativa para que possamos ampliar ainda mais o nosso impacto.
+<div style="display: flex;">
+<img src="/static/images/robopet1.jpg" alt="Robo Educa Versão Garrafa PET" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/robopet2.jpg" alt="Robô Educa em MDF versão 1" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/robopet3.jpg" alt="Robô Educa em MDF versão 2" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/robopet4.jpg" alt="Robô Educa em MDF manuseado por criança" style="width: 22%;">
+</div>
 
-## 💻 Tecnologias utilizadas neste aplicativo
+### 🧠 CÉREBRO
+
+O aplicativo, cérebro do robô, permite que o mesmo desempenhe funções cognitivas como ouvir, pensar e falar. 
+
+#### Tecnologias utilizadas na construção do aplicativo
 
 <div align="center">
-<img src="/static/images/gemini.png" alt="Logo Gemini API">
+<img src="/static/images/gemini.png" alt="Logo Build with Gemini">
 </div>
 
 - ![Pyton](https://img.shields.io/badge/python-v3-green)
@@ -68,15 +70,11 @@ Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) par
 - ![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
 - ![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
 
-## Visão Geral da Plataforma Robô Educa
+<hr>
 
-A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô é feito com materiais recicláveis ou MDF e pode ser customizado com elementos como LEDs, baterias e outros componentes. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele, que é o aplicativo descrito neste código.
+### Arquitetura
 
-O aplicativo permite que o robô humanoide desempenhe funções cognitivas: ouvir, pensar e falar. Essas capacidades são implementadas utilizando tecnologias de **Speech-to-Text** e **Text-to-Speech**, permitindo que o robô ouça mensagens faladas, as analise e responda com uma fala sintetizada.
-
-### Pilha Tecnológica e Arquitetura
-
-A aplicação é desenvolvida utilizando ferramentas open-source e hospedada na Google Cloud, aproveitando sua infraestrutura robusta. O backend é desenvolvido em Python usando o framework Flask, seguindo o padrão de design **Service/Repository**:
+A aplicação é desenvolvida utilizando ferramentas open-source e hospedada na **Google Cloud**, aproveitando sua infraestrutura robusta. O backend é desenvolvido em Python usando o framework Flask, seguindo o padrão de design **Service/Repository**:
 
 - **Camada de Serviço**: Lida com a lógica de negócio.
 - **Camada de Repositório**: Gerencia a integração com o banco de dados.
@@ -185,6 +183,11 @@ Após o login bem-sucedido, a interação começa no frontend com o arquivo `int
 O robô começa com uma saudação e convida o usuário a participar de um quiz sobre programação. Após falar, o app ativa o microfone em modo contínuo, escutando o que o usuário fala. Essas tarefas são realizadas pelo `Talk.js`, que utiliza as APIs `Media Devices`, `SpeechRecognition()` e `SpeechSynthesisUtterance()`.
 
 ```javascript
+recognition = new SpeechRecognition();
+recognition.lang = "pt-BR";
+recognition.continuous = true;      // Reconhecimento contínuo em loop
+recognition.interimResults = false; // resultados parciais
+
 // Este evento é acionado quando o reconhecimento de voz captura um resultado
 recognition.onresult = event => {    
     const transcript = event.results[event.resultIndex][0].transcript;    
@@ -207,12 +210,55 @@ recognition.onend = () => {
 };
 ```
 
-### Processamento Cognitivo com a API Google Gemini
+```javascript
+// Sintese de Fala - faz o dispositivo reproduzir uma mensagem através de seus autofalantes/fones
+function speak(message) {
+    message = removerEmojis(message);
+    const utterThis = new SpeechSynthesisUtterance(message);
+    utterThis.pitch = 2;
+    utterThis.rate = 4;
+
+    utterThis.onstart = function () {
+        hideAllExceptClose();                   // Oculta elementos que estiverem visiveis na tela
+        showElement("divSpinnerWaves");                
+    };
+
+    utterThis.onend = function () {        
+        speakStatus=false;
+        hideAllExceptClose();                   // Oculta elementos que estiverem visiveis na tela
+        showElement("divSpinnerRipple");        // Exibe Spinner simulando ondulaçao de escuta 
+        recognition.start();                    // Inicia o reconhecimento de voz 
+        timestampParam = Date.now();       
+    };
+
+    recognition.stop();                         // Ao iniciar a fala (reprodução do audio) Interrompe o reconhecimento de voz
+    speakStatus=true;                           // Speaking     on=true  off=false
+    synth.speak(utterThis);                     // inicia a reprodução da mensagem    
+}
+
+// Remove emojis da mensagem, para que a mesma possa ser reproduzida via sintese de fala
+function removerEmojis(texto) {
+    return texto
+        .replace(/\p{Emoji}/gu, '') // Remove emojis
+        .replace(/\s+/g, ' ') // Remove espaços em branco extras
+        .trim(); // Remove espaços em branco no início e no fim
+}
+```
+
+### 🧠 Processamento Cognitivo com a API Google Gemini
 
 Quando uma frase completa é detectada, ela é enviada para o backend para processamento cognitivo. Isso é realizado utilizando a **API GEMINI**, que aproveita o modelo `gemini-1.5-flash` para respostas rápidas e precisas, garantindo conversas fluidas que tornam o robô mais envolvente e realista.
 
+Como engenharia de prompt utilizamos a técnica de **Zero-Shot Prompting** aliada a um recurso do SDK do GEMINI, as **System instructions**, que fornecem um quadro de referência para o modelo, ajudando-o a compreender a tarefa e a responder de forma adequada sem precisar de exemplos específicos.
+
 ```python
 import google.generativeai as genai
+
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel(model_name=ai_model,
+        generation_config=generation_config,
+        system_instruction=system_instruction,
+        safety_settings=safety_settings)
 
 # Interação com a Google Gemini API
 def talk(userMessage):
@@ -322,7 +368,7 @@ $ gcloud run deploy --source .
 * No menu de navegação selecione: FireBase-Firestore 
 * Crie um Banco de Dados do tipo Nativo
 * Baixe um arquivo JSON contendo credenciais de acesso ao seu banco:
-    * IAM e Administrador / Contas de Serviço / Clicar na conta de Serviço: Default compute service account
+    * IAM e Administrador / Contas de Serviço / Clicar na conta de Serviço: **Default compute service account**
     * Chaves / Adicionar chave / Criar nova Chave / JSON / Criar
     * O arquivo JSON será baixado automaticamente
 * No menu de navegação selecione: Google Cloud Storage
@@ -349,6 +395,9 @@ Este projeto está licenciado sob a [Apache 2.0 License](LICENSE). Observe tamb�
 ## 🤝 Contribuições
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request ou colaborar de qualquer outra forma.
+
+💪 E você? Gostou? Então faça sua parte e colabore com esta iniciativa para que possamos ampliar ainda mais o nosso impacto.
+
 
 * Contatos/WhatsApp: +55 (71) 9.9341-6896 
 * E-mail: roboeduca.net@gmail.com
