@@ -35,8 +35,8 @@ Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Googl
 <div style="display: flex;">
 <img src="/static/images/image1.jpg" alt="Imagem 1" style="width: 22%; margin-right: 8px;">
 <img src="/static/images/image2.jpg" alt="Imagem 2" style="width: 22%; margin-right: 8px;">
-<img src="/static/images/image3.jpg" alt="Imagem 3" style="width: 22%; margin-right: 8px;">
-<img src="/static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
+<img src="/static/images/image4a.jpg" alt="Imagem 3" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/image3.jpg" alt="Imagem 4" style="width: 22%;">
 </div>
 
 📸 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão digital.
