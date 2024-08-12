@@ -35,7 +35,7 @@ But it was only in 2024, with the advent of **Generative AI** and the **Google G
 <div style="display: flex;">
 <img src="/static/images/image1.jpg" alt="Image 1" style="width: 22%; margin-right: 8px;">
 <img src="/static/images/image2.jpg" alt="Image 2" style="width: 22%; margin-right: 8px;">
-<img src="/static/images/image4.jpg" alt="Image 4" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/image4a.jpg" alt="Image 4" style="width: 22%; margin-right: 8px;">
 <img src="/static/images/image3.jpg" alt="Image 3" style="width: 22%;">
 </div>
 
