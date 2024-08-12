@@ -4,7 +4,7 @@
 
 <hr>
 
-[Versão em Portugês](/README_ptBR.md)
+[Versão em Portugês](/profile/README_ptBR.md)
 
 ![Portuguese](https://img.shields.io/badge/Language-Portuguese-brightgreen)
 <hr>
