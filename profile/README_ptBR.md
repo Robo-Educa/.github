@@ -1,5 +1,5 @@
 <div align="center">
-<img src="/static/images/logo.png" alt="Logo">
+<img src="//static/images/logo.png" alt="Logo">
 </div>
 
 <hr>
@@ -26,26 +26,26 @@ E toda a mágica realizado pelo aplicativo só é possível por conta do uso da 
 
 ## 💪 Histórico de Impacto Social
 
-Desde o ano de 2018, quando utilizávamos apenas leds, baterias e resistores conseguimos impactar centenas de crianças em diversas comunidades carentes na cidade de **Salvador, Bahia - Brasil**.
+Desde o ano de 2018 este trabalho, que acontece de forma voluntária, já impactou centenas de crianças em diversas comunidades carentes na cidade de **Salvador, Bahia - Brasil**.
 
 O idealizador deste projeto, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), é um homem negro de origem periférica graduado em Ciência de Dados e Desenvolvedor de Sistemas. O mesmo conta um pouco da sua história no documentário [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) disponível no Amazon Prime Video.
 
-Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Google GEMINI API**, que o robô passou a ter um **cérebro** capaz de responder de forma inteligente e rápida, tornando a interação com a criança flúida e encantadora 😄!
+Mas foi somente no ano de 2024 com o advento das **IA Generativas** e da **Google GEMINI API**, que o robô passou a ter um **cérebro** capaz de responder de forma inteligente e rápida, tornando a interação muito mais flúida e encantadora 😄!
 
 <div style="display: flex;">
 <img src="/static/images/image1.jpg" alt="Imagem 1" style="width: 22%; margin-right: 8px;">
 <img src="/static/images/image2.jpg" alt="Imagem 2" style="width: 22%; margin-right: 8px;">
-<img src="/static/images/image4a.jpg" alt="Imagem 3" style="width: 22%; margin-right: 8px;">
-<img src="/static/images/image3.jpg" alt="Imagem 4" style="width: 22%;">
+<img src="/static/images/image3.jpg" alt="Imagem 3" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/image4.jpg" alt="Imagem 4" style="width: 22%;">
 </div>
 
-📸 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão digital.
+#### 📸 Visite nossa [galeria de fotos](https://photos.app.goo.gl/yJiewdTTsNFtmF846) para conhecer mais sobre nossas oficinas de inclusão digital.
 
 ## Como as coisas funcionam
 
 ### 👤 CORPO
 
-A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô pode ser feito com materiais recicláveis como garrafas PET ou kits em madeira MDF. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele, que é o aplicativo contido neste repositório.
+A plataforma **Robô Educa** oferece uma experiência prática e criativa para os alunos, orientando-os na montagem física de um robô humanoide. Este robô pode ser feito com materiais recicláveis como garrafas PET ♻️ ou kits em madeira MDF. Após a montagem física, os alunos dão vida ao robô usando o "cérebro" dele 🧠, que é o aplicativo contido neste repositório.
 
 <div style="display: flex;">
 <img src="/static/images/robopet1.jpg" alt="Robo Educa Versão Garrafa PET" style="width: 22%; margin-right: 8px;">
@@ -83,6 +83,8 @@ Para armazenamento de dados, a plataforma utiliza um banco de dados NoSQL, o **F
 
 ### Arquivos Principais e Funcionalidades
 
+![Pyton](https://img.shields.io/badge/python-v3-green)
+
 ### Backend - `routes.py`
 O arquivo `routes.py` gerencia todas as rotas disponíveis na aplicação. É aqui que diferentes endpoints são definidos para lidar com as interações dos usuários e o processamento de dados.
 
@@ -98,13 +100,35 @@ import service.talkService as talkService
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# Troca de mensagens entre usuário e bot
+@app.route('/talk', methods=['POST']) 
+def talk():   
+    # Verifica se usuário está logado       
+    if not session.get('userId'): return make_response(jsonify({"error": "Não autorizado"}), 401)
+
+    # obtem dados da requisição - mensagem do usuário
+    data = request.get_json()
+    userMessage = data.get('message')    
+
+    # Envia mensagem para Bot e aguarda respectiva resposta
+    botResponse = talkService.talk(userMessage)
+    
+    # retorna ao Front com resposta do Bot
+    return botResponse    
 ```
 
 ### Frontend - HTML, CSS e JavaScript
-O frontend é implementado utilizando HTML, CSS e JavaScript, focando na simplicidade e facilidade de uso. Ele começa solicitando o acesso ao microfone, que é gerenciado pelo `mediadevices.js`.
 
-**Acesso ao Microfone**:
-Quando o aplicativo é iniciado, ele verifica as permissões para uso do microfone. Se for a primeira vez que o usuário acessa o app, ele será solicitado a conceder a permissão. Este processo é gerenciado pelo arquivo `mediadevices.js`.
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+
+O frontend é implementado utilizando HTML, CSS e JavaScript, focando na simplicidade e facilidade de uso. Ele começa solicitando o acesso ao microfone, que é gerenciado pelo `/static/js/mediadevices.js`.
+
+#### Acesso ao Microfone:
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+
+Quando o aplicativo é iniciado, ele verifica as permissões para uso do microfone. Se for a primeira vez que o usuário acessa o app, ele será solicitado a conceder a permissão. Este processo é gerenciado pelo arquivo `/static/js/mediadevices.js`.
 
 ```javascript
 async function devices_micPrompt() {
@@ -130,8 +154,8 @@ async function devices_micPrompt() {
 }
 ```
 
-**Autenticação do Usuário**:
-O processo de login é gerenciado pelo `login.js`, que envia uma requisição POST para o backend para validar o usuário. Se o usuário não tiver credenciais válidas, ele pode fazer login como convidado.
+#### Autenticação do Usuário:
+O processo de login é gerenciado pelo arquivo `/static/js/login.js`, que envia uma requisição POST para o backend para validar o usuário. Se o usuário não tiver credenciais válidas, ele pode fazer login como convidado.
 
 ```javascript
 async function login(usertype) {    
@@ -176,11 +200,15 @@ async function login(usertype) {
 }
 ```
 
-**Interação**:
-Após o login bem-sucedido, a interação começa no frontend com o arquivo `interaction.html`. A interface visual, gerenciada pelo `display.js`, é simples, com elementos que simbolizam escuta, pensamento e fala.
+#### Interação:
+Após o login bem-sucedido, a interação começa no frontend com o arquivo `templates/interaction.html`. A interface visual, gerenciada pelo arquivo `statis/js/display.js`, é simples, com elementos que simbolizam escuta, pensamento e fala.
 
 **Escuta Contínua e Processamento de Fala**:
-O robô começa com uma saudação e convida o usuário a participar de um quiz sobre programação. Após falar, o app ativa o microfone em modo contínuo, escutando o que o usuário fala. Essas tarefas são realizadas pelo `Talk.js`, que utiliza as APIs `Media Devices`, `SpeechRecognition()` e `SpeechSynthesisUtterance()`.
+O robô começa com uma saudação e convida o usuário a participar de um quiz sobre programação. Após falar, o app ativa o microfone em modo contínuo, escutando o que o usuário fala. Essas tarefas são realizadas pelo arquivo `/static/js/talk.js`, que utiliza as APIs `Media Devices`, `SpeechRecognition()` e `SpeechSynthesisUtterance()`.
+
+#### 🦻 OUVIR
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
 ```javascript
 recognition = new SpeechRecognition();
@@ -209,6 +237,10 @@ recognition.onend = () => {
     }        
 };
 ```
+
+#### 🗣️ FALAR
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
 ```javascript
 // Sintese de Fala - faz o dispositivo reproduzir uma mensagem através de seus autofalantes/fones
@@ -247,6 +279,8 @@ function removerEmojis(texto) {
 
 ### 🧠 Processamento Cognitivo com a API Google Gemini
 
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
+
 Quando uma frase completa é detectada, ela é enviada para o backend para processamento cognitivo. Isso é realizado utilizando a **API GEMINI**, que aproveita o modelo `gemini-1.5-flash` para respostas rápidas e precisas, garantindo conversas fluidas que tornam o robô mais envolvente e realista.
 
 Como engenharia de prompt utilizamos a técnica de **Zero-Shot Prompting** aliada a um recurso do SDK do GEMINI, as **System instructions**, que fornecem um quadro de referência para o modelo, ajudando-o a compreender a tarefa e a responder de forma adequada sem precisar de exemplos específicos.
@@ -255,6 +289,9 @@ Como engenharia de prompt utilizamos a técnica de **Zero-Shot Prompting** aliad
 import google.generativeai as genai
 
 genai.configure(api_key=my_api_key)
+
+system_instruction = os.environ.get("SYSTEM_INSTRUCTIONS")    # Gemini - Instruções do Sistema / Informa as caracteristicas do Assistente.
+
 model = genai.GenerativeModel(model_name=ai_model,
         generation_config=generation_config,
         system_instruction=system_instruction,
@@ -292,9 +329,63 @@ def talk(userMessage):
     return response
 ```
 
-### Armazenamento de Dados e Personalização
+### 🛡️ Conteúdo para crianças - Segurança no comportamento do modelo 
 
-A plataforma armazena a conversa de cada usuário no Firestore utilizando coleções NoSQL. Isso garante a segurança das crianças, além de permitir a moderação e personalização do conteúdo.
+A **Google Gemini API** oferece uma funcionalidade chamada `safety_settings` que permite controlar o comportamento do modelo de linguagem em relação à segurança, especialmente em conversas com crianças. Ao instanciar o modelo é possível definir os níveis desejados de proteção contra conteúdo impróprio ou perigoso.
+
+```python
+safety_settings = [  
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  }
+]
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel(model_name=ai_model,
+        generation_config=generation_config,
+        system_instruction=system_instruction,
+        safety_settings=safety_settings)
+```
+
+Sendo:
+
+ **category**: A categoria específica de conteúdo prejudicial que você deseja bloquear. As categorias disponíveis são:
+
+* HARM_CATEGORY_HARASSMENT: Bloqueia conteúdo que pode ser considerado bullying, assédio ou perseguição.
+* HARM_CATEGORY_HATE_SPEECH: Bloqueia conteúdo que promove o ódio, a violência ou a discriminação contra grupos específicos.
+* HARM_CATEGORY_SEXUALLY_EXPLICIT: Bloqueia conteúdo sexualmente explícito ou sugestivo.
+* HARM_CATEGORY_DANGEROUS_CONTENT: Bloqueia conteúdo que pode ser considerado perigoso, como instruções para atividades perigosas ou informações sobre como fabricar armas.
+
+E:
+
+**threshold**: O parâmetro que define o nível de rigor com que o modelo deve bloquear conteúdo dentro de uma determinada categoria. O valor selecionado foi:
+
+**BLOCK_LOW_AND_ABOVE**: Bloqueia qualquer conteúdo dentro da categoria que seja considerado "baixo", "médio" ou "alto" em termos de risco. Este é o nível de segurança mais alto e é adequado para ambientes onde a proteção de crianças é priorizada.
+
+### Armazenamento de Dados
+
+![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
+
+A plataforma armazena a conversa de cada usuário em um banco de dados do **Firestore** utilizando coleções NoSQL. Isto gera vários benefícios:
+
+* Escalabilidade automática: O Firestore é um banco de dados NoSQL que escala automaticamente, ajustando-se à demanda de forma transparente, garantindo que o aplicativo possa lidar com um grande volume de conversas sem problemas de desempenho.
+* Baixa latência: O Firestore é projetado para operações de leitura e gravação rápidas, tornando as respostas do chatbot instantâneas e fluidas.
+* Segurança e controle de acesso: O Firestore oferece controle de acesso granular, permitindo definir regras para quem pode acessar e modificar as conversas, garantindo a privacidade e segurança dos dados.
+* Modelo de preços baseado em uso: Você paga apenas pelos recursos que usa, o que pode ser mais econômico em comparação com bancos de dados relacionais tradicionais, especialmente para aplicações de chatbot com alto volume de conversas.
+* Permite a moderação das conversas, para controle de qualidade e segurança da comunicação;
+* Permite a personalização do conteúdo. 
 
 ```python
 import time
@@ -326,7 +417,31 @@ def store(user_id, role, message):
         return False
 ```
 
-### Conclusão
+### Personalização do conteúdo
+
+E com relação a personalização de conteúdo, O **Google GEMINI** é capaz de lidar com até **2 milhões de Tokens**. O que representa um volume de dados considerável, capaz de armazenar uma quantidade significativa de informações e interações para a personalização de conteúdo educacional.
+
+Algumas aplicações práticas para uso desta capacidade:
+
+1. Históricos de Aprendizagem Detalhados: 
+
+***Mapeamento do Progresso***: Armazenar o histórico completo de interações de um aluno, como respostas a exercícios, testes, debates, feedback, tempo dedicado a cada assunto, etc., permite mapear o progresso de forma individualizada e granular.
+
+***Identificação de Padrões***: Analisar esses dados permite identificar padrões de comportamento, áreas de dificuldade, pontos fortes e estilos de aprendizagem de cada aluno.
+
+2. Criação de Rotas de Aprendizagem Personalizadas:
+
+***Recomendador Inteligente***: Com base no histórico, o sistema pode recomendar conteúdo, atividades, exercícios e recursos específicos para cada aluno, adaptando o ritmo e o nível de dificuldade.
+
+***Conteúdo sob Demanda:*** O modelo pode gerar material de apoio, explicações adicionais, resumos ou exemplos sobre tópicos específicos onde o aluno demonstra dificuldades.
+
+3. Feedback Personalizado e Interativo:
+
+***Análise de Respostas:*** O modelo pode analisar respostas, identificando erros, lacunas de conhecimento e áreas que precisam de reforço.
+
+***Feedback Adaptativo:*** O feedback pode ser personalizado com explicações claras, exemplos e dicas específicas para cada aluno, aumentando o aprendizado e a retenção.
+
+### ✅ Conclusão
 
 O Robô Educa combina criatividade física com inteligência artificial de ponta para criar uma experiência interativa e educacional para crianças. A arquitetura modular da plataforma e o uso de tecnologias web modernas a tornam escalável, segura e adaptável a diversos ambientes de aprendizado.
 

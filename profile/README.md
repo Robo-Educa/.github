@@ -4,7 +4,7 @@
 
 <hr>
 
-[Versão em Portugês](/profile/README_ptBR.md)
+[Versão em Portugês](/README_ptBR.md)
 
 ![Portuguese](https://img.shields.io/badge/Language-Portuguese-brightgreen)
 <hr>
@@ -26,26 +26,26 @@ And all the magic done by the application is only possible due to the use of the
 
 ## 💪 History of Social Impact
 
-Since 2018, when we were only using LEDs, batteries, and resistors, we have impacted hundreds of children in various impoverished communities in the city of **Salvador, Bahia - Brazil**.
+Since 2018, this work, which is carried out voluntarily, has already impacted hundreds of children in several needy communities in the city of **Salvador, Bahia - Brazil**.
 
 The mastermind behind this project, [Carlos Sales](https://drive.google.com/file/d/1KPPJQhNn_YsWYK6qllP6muns6WlSRyM1/view?usp=sharing), is a black man from a peripheral area who graduated in Data Science and Systems Developer. He tells a little about his story in the documentary [C0d3rs Championship](https://www.primevideo.com/detail/0GS98CG03BVM7C224YK7KIWXOJ) available on Amazon Prime Video.
 
-But it was only in 2024, with the advent of **Generative AI** and the **Google GEMINI API**, that the robot began to have a **brain** capable of responding intelligently and quickly, making the interaction with the child fluid and enchanting 😄!
+But it was only in the year 2024 with the advent of **Generative AI** and the **Google GEMINI API**, that the robot began to have a **brain** capable of responding intelligently and quickly, making the interaction much more fluid and charming 😄!
 
 <div style="display: flex;">
 <img src="/static/images/image1.jpg" alt="Image 1" style="width: 22%; margin-right: 8px;">
 <img src="/static/images/image2.jpg" alt="Image 2" style="width: 22%; margin-right: 8px;">
-<img src="/static/images/image4a.jpg" alt="Image 4" style="width: 22%; margin-right: 8px;">
+<img src="/static/images/image4.jpg" alt="Image 4" style="width: 22%; margin-right: 8px;">
 <img src="/static/images/image3.jpg" alt="Image 3" style="width: 22%;">
 </div>
 
-📸 Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn more about our digital inclusion workshops.
+#### 📸 Visit our [photo gallery](https://photos.app.goo.gl/yJiewdTTsNFtmF846) to learn more about our digital inclusion workshops.
 
 ## How things work
 
 ### 👤 BODY
 
-The **Robô Educa** platform offers a practical and creative experience for students, guiding them in the physical assembly of a humanoid robot. This robot can be made with recyclable materials like PET bottles or MDF wood kits. After the physical assembly, students bring the robot to life using its "brain," which is the application contained in this repository.
+The **Robô Educa** platform offers a practical and creative experience for students, guiding them in the physical assembly of a humanoid robot. This robot can be made with recyclable materials like PET bottles ♻️ or MDF wood kits. After the physical assembly, students bring the robot to life using its "brain" 🧠 which is the application contained in this repository.
 
 <div style="display: flex;">
 <img src="/static/images/robopet1.jpg" alt="Robo Educa PET Bottle Version" style="width: 22%; margin-right: 8px;">
@@ -83,6 +83,8 @@ For data storage, the platform uses a NoSQL database, **Firebase/Firestore**, wh
 
 ### Main Files and Functionalities
 
+![Pyton](https://img.shields.io/badge/python-v3-green)
+
 ### Backend - `routes.py`
 The `routes.py` file manages all available routes in the application. This is where different endpoints are defined to handle user interactions and data processing.
 
@@ -98,13 +100,35 @@ import service.talkService as talkService
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# Troca de mensagens entre usuário e bot
+@app.route('/talk', methods=['POST']) 
+def talk():   
+    # Verifica se usuário está logado       
+    if not session.get('userId'): return make_response(jsonify({"error": "Não autorizado"}), 401)
+
+    # obtem dados da requisição - mensagem do usuário
+    data = request.get_json()
+    userMessage = data.get('message')    
+
+    # Envia mensagem para Bot e aguarda respectiva resposta
+    botResponse = talkService.talk(userMessage)
+    
+    # retorna ao Front com resposta do Bot
+    return botResponse    
 ```
 
 ### Frontend - HTML, CSS and JavaScript
-The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting access to the microphone, which is managed by `mediadevices.js`.
 
-**Microphone Access**:
-When the application is launched, it checks the permissions for microphone usage. If it is the first time the user accesses the app, they will be prompted to grant permission. This process is managed by the `mediadevices.js` file. 
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+
+The frontend is implemented using HTML, CSS, and JavaScript, focusing on simplicity and ease of use. It starts by requesting access to the microphone, which is managed by `/static/js/mediadevices.js`.
+
+#### Microphone Access:
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+
+When the application is launched, it checks the permissions for microphone usage. If it is the first time the user accesses the app, they will be prompted to grant permission. This process is managed by the `/static/js/mediadevices.js` file. 
 
 ```javascript
 async function devices_micPrompt() {
@@ -130,8 +154,8 @@ async function devices_micPrompt() {
 }
 ```
 
-**User Authentication**:
-The login process is managed by `login.js`, which sends a POST request to the backend to validate the user. If the user does not have valid credentials, they can log in as a guest. 
+#### User Authentication:
+The login process is managed by `/static/js/login.js`, which sends a POST request to the backend to validate the user. If the user does not have valid credentials, they can log in as a guest. 
 
 ```javascript
 async function login(usertype) {    
@@ -176,11 +200,15 @@ async function login(usertype) {
 }
 ```
 
-**Interaction**:
-After successful login, interaction begins on the frontend with the `interaction.html` file. The visual interface, managed by `display.js`, is simple, with elements that symbolize listening, thinking, and speaking.
+#### Interaction:
+After successful login, interaction begins on the frontend with the `templates/interaction.html` file. The visual interface, managed by `/static/js/display.js`, is simple, with elements that symbolize listening, thinking, and speaking.
 
 **Continuous Listening and Speech Processing**:
-The robot starts with a greeting and invites the user to participate in a programming quiz. After speaking, the app activates the microphone in continuous mode, listening to what the user says. These tasks are performed by `Talk.js`, which uses the `Media Devices`, `SpeechRecognition()`, and `SpeechSynthesisUtterance()` APIs. 
+The robot starts with a greeting and invites the user to participate in a programming quiz. After speaking, the app activates the microphone in continuous mode, listening to what the user says. These tasks are performed by `/static/js/talk.js`, which uses the `Media Devices`, `SpeechRecognition()`, and `SpeechSynthesisUtterance()` APIs. 
+
+#### 🦻 TO HEAR
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
 ```javascript
 recognition = new SpeechRecognition();
@@ -209,6 +237,10 @@ recognition.onend = () => {
     }        
 };
 ```
+
+#### 🗣️ TO SPEAK
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
 ```javascript
 // Sintese de Fala - faz o dispositivo reproduzir uma mensagem através de seus autofalantes/fones
@@ -247,6 +279,8 @@ function removerEmojis(texto) {
 
 ### 🧠 Cognitive Processing with the Google Gemini API
 
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-gray?style=for-the-badge&logo=google-cloud)
+
 When a complete sentence is detected, it is sent to the backend for cognitive processing. This is done using the **GEMINI API**, which leverages the `gemini-1.5-flash` model for fast and accurate responses, ensuring fluid conversations that make the robot more engaging and realistic.
 
 For prompt engineering, we use the **Zero-Shot Prompting** technique combined with a feature of the GEMINI SDK, **System instructions**, which provide a frame of reference for the model, helping it understand the task and respond appropriately without needing specific examples. 
@@ -255,6 +289,9 @@ For prompt engineering, we use the **Zero-Shot Prompting** technique combined wi
 import google.generativeai as genai
 
 genai.configure(api_key=my_api_key)
+
+system_instruction = os.environ.get("SYSTEM_INSTRUCTIONS")    # Gemini - Instruções do Sistema / Informa as caracteristicas do Assistente.
+
 model = genai.GenerativeModel(model_name=ai_model,
         generation_config=generation_config,
         system_instruction=system_instruction,
@@ -292,9 +329,63 @@ def talk(userMessage):
     return response
 ```
 
-### Data Storage and Personalization
+### 🛡️ Content for Children - Safety in Model Behavior
 
-The platform stores each user's conversation in Firestore using NoSQL collections. This ensures the safety of children, as well as allowing for content moderation and personalization. 
+The **Google Gemini API** offers a feature called `safety_settings` that allows you to control the language model's behavior in terms of safety, especially in conversations with children. When instantiating the model, it is possible to define the desired levels of protection against inappropriate or dangerous content.
+
+```python
+safety_settings = [  
+  {
+    "category": "HARM_CATEGORY_HARASSMENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_HATE_SPEECH",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  },
+  {
+    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+    "threshold": "BLOCK_LOW_AND_ABOVE"
+  }
+]
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel(model_name=ai_model,
+        generation_config=generation_config,
+        system_instruction=system_instruction,
+        safety_settings=safety_settings)
+```
+
+Where:
+
+**category**: The specific category of harmful content you want to block. Available categories are:
+
+* HARM_CATEGORY_HARASSMENT: Blocks content that may be considered bullying, harassment, or stalking.
+* HARM_CATEGORY_HATE_SPEECH: Blocks content that promotes hatred, violence, or discrimination against specific groups.
+* HARM_CATEGORY_SEXUALLY_EXPLICIT: Blocks sexually explicit or suggestive content.
+* HARM_CATEGORY_DANGEROUS_CONTENT: Blocks content that may be considered dangerous, such as instructions for dangerous activities or information on how to manufacture weapons.
+
+And:
+
+**threshold**: The parameter that defines the level of strictness with which the model should block content within a given category. The selected value was:
+
+**BLOCK_LOW_AND_ABOVE**: Blocks any content within the category that is considered "low", "medium", or "high" in terms of risk. This is the highest security level and is appropriate for environments where child protection is a priority.
+
+### Data Storage
+
+![Firestore](https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge&logo=firebase)
+
+The platform stores each user’s conversation in a **Firestore** database using NoSQL collections. This provides several benefits:
+
+* Automatic scalability: Firestore is a NoSQL database that automatically scales, transparently adjusting to demand, ensuring that the application can handle a large volume of conversations without performance issues.
+* Low latency: Firestore is designed for fast read and write operations, making chatbot responses instantaneous and fluid.
+* Security and access control: Firestore offers granular access control, allowing you to define rules for who can access and modify conversations, ensuring data privacy and security.
+* Usage-based pricing model: You only pay for the resources you use, which can be more cost-effective compared to traditional relational databases, especially for chatbot applications with high conversation volume.
+* Allows for moderation of conversations, for quality control and communication security;
+* Allows for content personalization.
 
 ```python
 import time
@@ -326,7 +417,31 @@ def store(user_id, role, message):
         return False
 ```
 
-### Conclusion
+### Content personalization
+
+And regarding content personalization, **Google GEMINI** is capable of handling up to **2 million Tokens**. This represents a considerable volume of data, capable of storing a significant amount of information and interactions for educational content personalization.
+
+Some practical applications for using this capacity:
+
+1. Detailed Learning Histories:
+
+***Progress Mapping***: Storing a complete history of a student's interactions, such as responses to exercises, tests, debates, feedback, time spent on each subject, etc., allows progress to be mapped in a granular and individualized manner.
+
+***Pattern Identification***: Analyzing this data allows you to identify behavioral patterns, areas of difficulty, strengths, and learning styles for each student.
+
+2. Creating Personalized Learning Paths:
+
+***Intelligent Recommender***: Based on history, the system can recommend specific content, activities, exercises, and resources for each student, adapting the pace and difficulty level.
+
+***On-Demand Content:*** The model can generate supporting materials, additional explanations, summaries, or examples on specific topics where the student demonstrates difficulties.
+
+3. Personalized and Interactive Feedback:
+
+***Response Analysis:*** The model can analyze responses, identifying errors, knowledge gaps, and areas that need reinforcement.
+
+***Adaptive Feedback:*** Feedback can be personalized with clear explanations, examples, and specific tips for each student, increasing learning and retention. 
+
+### ✅ Conclusion
 
 Robô Educa combines physical creativity with cutting-edge artificial intelligence to create an interactive and educational experience for children. The platform's modular architecture and use of modern web technologies make it scalable, secure, and adaptable to diverse learning environments.
 
